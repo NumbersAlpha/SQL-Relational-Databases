@@ -3,16 +3,18 @@
 
 create table Animal_Type(
  id serial,
- name  varchar,
- gender varchar,
  type varchar,
- age int,
  breed varchar,
  primary key(id)
 );
 
-insert into Animal_Type (name, gender, type, age, breed) values
-('Charlie', 'male', 'dog', 1, 'husky')
+insert into Animal_Type (type, breed) values
+('dog', 'husky'),
+('dog', 'shiba inu'),
+('dog', 'chihuahua'),
+('dog', 'shepherd'),
+('dog', 'pomeranian'),
+('dog', 'corgi')
 ;
 
 
@@ -27,6 +29,7 @@ create table Animal_Shelter_Name(
 insert into Animal_Shelter_Name (organization, budget, housing) values
 ('Quackers', 123000, 5000)
 ;
+
 
 ## SQL-Queries 
 
