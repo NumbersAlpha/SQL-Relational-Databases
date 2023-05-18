@@ -51,7 +51,21 @@ create table Animal_Breed_Dog(
      ('female')
      ;
    
-
+ create table Animal_Personality(
+   id serial,
+   personality varchar,
+   primary key(id)
+   );
+   
+   insert into Animal_Personality (personality) values
+   ('short tempered'),
+   ('polite'),
+   ('shy'),
+   ('anxious'),
+   ('joyous'),
+   ('lazy')
+   ;
+   
 
 ## SQL-Queries 
 
