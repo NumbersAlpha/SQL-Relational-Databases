@@ -10,22 +10,35 @@ create table Animal_Type(
 insert into Animal_Type (type) values
 ('dog'),
 ('cat'),
-('rat'),
-('bunny'),
-('hampster')
 ;
 
-create table Animal_Breed(
+create table Animal_Breed_Dog(
   id serial,
-  breed varchar,
+  breed_dog varchar,
   primary key(id)
   );
   
- insert into Animal_Breed (breed) values
- ('male'),
- ('female')
+ insert into Animal_Breed_Dog (breed_dog) values
+ ('husky'),
+ ('shiba inu'),
+ ('shepherd'),
+ ('pomeranian'),
+ ('corgi')
  ;
  
+ create table Animal_Breed_Cat(
+   id serial,
+   breed_cat varchar,
+   primary key(id)
+   );
+   
+   insert into Animal_Breed_Cat (breed_cat) values
+   ('siamese'),
+   ('shorthair'),
+   ('persian'),
+   ('sphynx')
+   ;
+   
 
 
 ## SQL-Queries 
