@@ -39,6 +39,18 @@ create table Animal_Breed_Dog(
    ('sphynx')
    ;
    
+     
+   create table Animal_Gender(
+     id serial,
+     gender varchar,
+     primary key(id)
+     );
+     
+     insert into Animal_Gender (gender) values
+     ('male'),
+     ('female')
+     ;
+   
 
 
 ## SQL-Queries 
