@@ -18,19 +18,6 @@ insert into Animal_Type (type, breed) values
 ;
 
 
-create table Animal_Shelter_Name(
-  id serial,
-  organization varchar,
-  budget int,
-  housing int,
-  primary key(id)
-);
-
-insert into Animal_Shelter_Name (organization, budget, housing) values
-('Quackers', 123000, 5000)
-;
-
-
 ## SQL-Queries 
 
 select id, organization, budget as dollar_budget, housing as square_footage from Animal_Shelter_Name
