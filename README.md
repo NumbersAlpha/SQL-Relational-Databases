@@ -1,23 +1,6 @@
 # SQL-Relational-Databases
 ## SQL-Tables
 
-### create table Animal_Type( 
-  id serial, 
-  
-  type varchar, 
- 
- primary key(id) 
-
-);
-
- insert into Animal_Type (type) values 
- 
-('dog'),
-
-('cat') 
-
-;
-
 ### create table Animal_Breed_Dog( 
   id serial, 
   
@@ -106,9 +89,7 @@ insert into Animal_Personality (personality) values
 
 ### create table Animal ( 
   name varchar, 
-  
-  type_id int,
-  
+    
   dogbreed_id int,
   
   catbreed_id int,
@@ -118,9 +99,7 @@ insert into Animal_Personality (personality) values
   personality_id int, 
   
   age int, 
-  
-  constraint fk_type_id foreign key(type_id) references Animal_Type(id), 
-  
+    
   constraint fk_dogbreed_id foreign key(dogbreed_id) references Animal_Breed_dog(id),
   
   constraint fk_catbreed_id foreign key(catbreed_id) references Animal_Breed_cat(id),
@@ -129,10 +108,23 @@ insert into Animal_Personality (personality) values
  
  constraint fk_personality_id foreign key(personality_id) references Animal_Personality(id) );
 
-insert into Animal (name, type_id, dogbreed_id, catbreed_id, gender_id, personality_id, age) values 
+insert into Animal (name, dogbreed_id, catbreed_id, gender_id, personality_id, age) values 
 
-('Richard', 1, 1, 1, 2, 5, 12) ;
+('Richard', 1, 1, 2, 5, 12) ;
 
 ## SQL-Queries 
 
+### Basic Test
 select id, organization, budget as dollar_budget, housing as square_footage from Animal_Shelter_Name
+
+### finds all related names, breeds, genders, and personalities of Animals
+select name, Animal_Breed_Dog.dog_breed, Animal_Breed_cat.cat_breed, Animal_Gender.gender, Animal_Personality.personality from Animal
+
+join Animal_Breed_Dog on Animal.dogbreed_id = Animal_Breed_Dog.id
+
+join Animal_Breed_Cat on Animal.catbreed_id = Animal_Breed_Cat.id
+
+join Animal_Gender on Animal.gender_id = Animal_Gender.id
+
+join Animal_Personality on Animal.personality_id = Animal_Personality.id
+
