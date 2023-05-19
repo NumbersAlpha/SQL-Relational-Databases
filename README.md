@@ -66,6 +66,21 @@ create table Animal_Breed_Dog(
    ('lazy')
    ;
    
+   create table Animal (
+   name varchar,
+   type_id int,
+
+   gender_id int,
+   personality_id int,
+   age int,
+  constraint fk_type_id foreign key(type_id) references Animal_Type(id),
+  constraint fk_gender_id foreign key (gender_id) references Animal_Gender(id),
+  constraint fk_personality_id foreign key(personality_id) references Animal_Personality(id)
+   );
+   
+  insert into Animal (name, type_id, gender_id, personality_id, age) values
+  ('Richard', 1, 1, 5, 12)
+  ;
 
 ## SQL-Queries 
 
