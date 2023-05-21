@@ -199,16 +199,19 @@ create table Animal_Adoption(
   ('Bones on Bones', 20000, 5125000)
   ;
 
-create table Animal ( 
-  name varchar, 
+create table AnimalORG_one ( 
+  id serial,
+  name varchar,
+  org_id int,
   type_id int,
   breed_id int,
   gender_id int, 
   personality_id int, 
   age int, 
   state_id int,
+  primary key(id),
   
-  
+  constraint fk_org_id foreign key(org_id) references Company_BASE(id),
   constraint fk_type_id foreign key(type_id) references Animal_Type(id),
   constraint fk_breed_id foreign key(breed_id) references Animal_Breed(id),
   constraint fk_gender_id foreign key (gender_id) references Animal_Gender(id),       
@@ -217,57 +220,36 @@ create table Animal (
   );
 
 
-insert into Animal (name, type_id, breed_id, gender_id, personality_id, state_id, age) values 
-('Stanley', 1, 1, 1, 1, 1, 1),
-('Cheddar', 1, 1, 1, 3, 2, 6),
-('hotdoh', 1, 1, 1, 2, 3, 7),
-('Xael', 2, 63, 2, 6, 1, 5),
-('Yujiro',2 , 81, 1, 1, 2, 10),
-('Richard', 2, 99, 2, 5, 3, 12),
-('Mr. Lam', 1, 104, 1, 4, 2, ceiling(RANDOM()*10)),
+insert into AnimalORG_one (name, org_id, type_id, breed_id, gender_id, personality_id, state_id, age) values 
+('Stanley', 1, 1, 1, 1, 1, 1, 1),
+('Cheddar', 1, 1, 1, 1, 3, 2, 6),
+('hotdoh', 1, 1, 1, 1, 2, 2, 7),
+('Xael', 1, 2, 63, 2, 6, 1, 5),
+('Yujiro', 1, 2, 81, 1, 1, 2, 10),
+('Richard', 1, 2, 99, 2, 5, 2, 12),
+('Mr. Lam', 1, 1, 104, 1, 4, 2, ceiling(RANDOM()*10)),
 
-('No-Name', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('No-Name', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('No-Name', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('No-Name', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('No-Name', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('No-Name', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('No-Name', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('No-Name', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('No-Name', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('No-Name', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('No-Name', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('No-Name', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('No-Name', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('No-Name', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('No-Name', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('No-Name', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('No-Name', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('No-Name', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('No-Name', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('No-Name', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('Pumpkin', 1, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)),
+('Rowan', 1, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)),
+('Riley', 1, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)),
+('Reese', 1, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)),
+('Kai', 1, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)),
+('Milo', 1, 1, ceiling(RANDOM()*60), 1, ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)),
+('Nala', 1, 1, ceiling(RANDOM()*60), 2, ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)),
+('Felix', 1, 1, ceiling(RANDOM()*60), 1, ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)),
+('Lucy', 1, 1, ceiling(RANDOM()*60), 2, ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)),
+('Cleo', 1, 1, ceiling(RANDOM()*60), 1, ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)),
 
-('Pumpkin', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('Rowan', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('Riley', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('Reese', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('Kai', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('Milo', 1, ceiling(RANDOM()*60), 1, ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('Nala', 1, ceiling(RANDOM()*60), 2, ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('Felix', 1, ceiling(RANDOM()*60), 1, ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('Lucy', 1, ceiling(RANDOM()*60), 2, ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('Cleo', 1, ceiling(RANDOM()*60), 1, ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-
-('Maske', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('Michael', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('Coco', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('Arbiter', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('Clam', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('Daisy', 2, 66, 2, ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('Holly', 2, ceiling(RANDOM()*60 + 60), 2, ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('Cooper', 2, ceiling(RANDOM()*60 + 60), 1, ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('Billy', 2, ceiling(RANDOM()*60 + 60), 1, ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
-('Preston', 2, ceiling(RANDOM()*60 + 60), 1, ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15))
+('Maske', 1, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)),
+('Michael', 1, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)),
+('Coco', 1, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)),
+('Arbiter', 1, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)),
+('Clam', 1, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)),
+('Daisy', 1, 2, 66, 2, ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)),
+('Holly', 1, 2, ceiling(RANDOM()*60 + 60), 2, ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)),
+('Cooper', 1, 2, ceiling(RANDOM()*60 + 60), 1, ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)),
+('Billy', 1, 2, ceiling(RANDOM()*60 + 60), 1, ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)),
+('Preston', 1, 2, ceiling(RANDOM()*60 + 60), 1, ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15))
 ;
 
 ## SQL-Queries 
