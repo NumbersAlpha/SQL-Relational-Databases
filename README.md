@@ -280,7 +280,7 @@ join Animal_Adoption on Animal.state_id = Animal_Adoption.id
 where Animal_Adoption.state = 'housed'
 order by age
 
-### Aggregation + Grouping: Finds the average age of a female / male cat and dog. If you get influenced by others decisions.
+### Aggregation + Grouping: Finds the average age of a female / male cat and dog. If you get influenced by other people.
 
 select Animal_Type.type, Animal_Gender.gender, count(*), Animal_Adoption.state, avg(age) from Animal
 
