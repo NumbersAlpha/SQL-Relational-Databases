@@ -207,7 +207,7 @@ insert into Animal (name, type_id, breed_id, gender_id, personality_id, state_id
 ('Stanley', 1, 1, 1, 1, 1, 1),
 ('Cheddar', 1, 1, 1, 3, 2, 6),
 ('hotdoh', 1, 1, 1, 2, 3, 7),
-('Xael', 2, 63, 2, 6, 1, 55),
+('Xael', 2, 63, 2, 6, 1, 5),
 ('Yujiro',2 , 81, 1, 1, 2, 10),
 ('Richard', 2, 99, 2, 5, 3, 12),
 ('Mr. Lam', 1, 104, 1, 4, 2, ceiling(RANDOM()*10)),
@@ -261,14 +261,37 @@ insert into Animal (name, type_id, breed_id, gender_id, personality_id, state_id
 ### Basic Test
 select id, organization, budget as dollar_budget, housing as square_footage from Animal_Shelter_Name
 
-### finds all related names, breeds, genders, and personalities of Animals
-select name, Animal_Breed_Dog.dog_breed, Animal_Breed_cat.cat_breed, Animal_Gender.gender, Animal_Personality.personality from Animal
+### Filtering: Finds all of the animals in house (adoptable). Shows all available pets for adoption.
+select name, Animal_Type.type, Animal_Breed.breed, Animal_Gender.gender, Animal_Personality.personality, Animal_Adoption.state, age from Animal
 
-join Animal_Breed_Dog on Animal.dogbreed_id = Animal_Breed_Dog.id
-
-join Animal_Breed_Cat on Animal.catbreed_id = Animal_Breed_Cat.id
-
+join Animal_Type on Animal.type_id = Animal_Type.id
+join Animal_Breed on Animal.breed_id = Animal_Breed.id
 join Animal_Gender on Animal.gender_id = Animal_Gender.id
-
 join Animal_Personality on Animal.personality_id = Animal_Personality.id
+join Animal_Adoption on Animal.state_id = Animal_Adoption.id
 
+where Animal_Adoption.state = 'housed'
+
+### Sorting: Orders all the adoptable animals from youngest to oldest. If you want a younger pet.
+select name, Animal_Type.type, Animal_Breed.breed, Animal_Gender.gender, Animal_Personality.personality, Animal_Adoption.state, age from Animal
+
+join Animal_Type on Animal.type_id = Animal_Type.id
+join Animal_Breed on Animal.breed_id = Animal_Breed.id
+join Animal_Gender on Animal.gender_id = Animal_Gender.id
+join Animal_Personality on Animal.personality_id = Animal_Personality.id
+join Animal_Adoption on Animal.state_id = Animal_Adoption.id
+
+where Animal_Adoption.state = 'housed'
+order by age
+
+### Aggregation + Grouping: Finds the average age of a female / male cat and dog. If you get influenced by others decisions.
+
+select Animal_Type.type, Animal_Gender.gender, count(*), Animal_Adoption.state, avg(age) from Animal
+
+join Animal_Type on Animal.type_id = Animal_Type.id
+join Animal_Gender on Animal.gender_id = Animal_Gender.id
+join Animal_Adoption on Animal.state_id = Animal_Adoption.id
+
+where state = 'housed'
+
+group by Animal_type.type, Animal_Gender.gender, Animal_Adoption.state
