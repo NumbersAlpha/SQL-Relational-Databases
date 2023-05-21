@@ -109,7 +109,8 @@ insert into Animal (name, type_id, breed_id, gender_id, personality_id, state_id
 ('hotdoh', 1, 7, 1, 2, 3, 7),
 ('Xael', 2, 2, 2, 6, 1, 55),
 ('Yujiro', 2, 4, 1, 1, 2, 10),
-('Richard', 2, 1, 2, 5, 1, 12)
+('Richard', 2, 1, 2, 5, 1, 12),
+('Mr. Lam', 1, 104, 1, 4, 2, ceiling(RANDOM()*10))
 ;
 
 ## SQL-Queries 
