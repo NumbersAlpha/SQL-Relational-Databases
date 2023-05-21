@@ -294,12 +294,12 @@ group by Animal_type.type, Animal_Gender.gender, Animal_Adoption.state
 
 select Animal_Type.type, Animal_Gender.gender, 
 
-((sum(Animal.state_id) - count(*))*100/count(*)) as Housed_Percentage
+((sum(AnimalORG_one.state_id) - count(*))*100/count(*)) as Housed_Percentage
 
-from Animal
+from AnimalORG_one
 
-join Animal_Gender on Animal.gender_id = Animal_Gender.id
-join Animal_Type on Animal.type_id = Animal_Type.id
+join Animal_Gender on AnimalORG_one.gender_id = Animal_Gender.id
+join Animal_Type on AnimalORG_one.type_id = Animal_Type.id
 
 
 group by  Animal_Gender.gender, Animal_Type.type
@@ -308,12 +308,12 @@ group by  Animal_Gender.gender, Animal_Type.type
 
 select Animal_Type.type, Animal_Gender.gender, 
 
-abs(((sum(Animal.state_id) - count(*))*100/count(*))-100) as Adoption_Percentage
+abs(((sum(AnimalORG_one.state_id) - count(*))*100/count(*))-100) as Adoption_Percentage
 
-from Animal
+from AnimalORG_one
 
-join Animal_Gender on Animal.gender_id = Animal_Gender.id
-join Animal_Type on Animal.type_id = Animal_Type.id
+join Animal_Gender on AnimalORG_one.gender_id = Animal_Gender.id
+join Animal_Type on AnimalORG_one.type_id = Animal_Type.id
 
 
 group by  Animal_Gender.gender, Animal_Type.type
