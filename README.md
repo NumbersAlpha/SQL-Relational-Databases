@@ -280,11 +280,11 @@ order by age
 
 ### Aggregation + Grouping: Finds the average age of a female / male cat and dog. If you get influenced by other people.
 
-select Animal_Type.type, Animal_Gender.gender, count(*), Animal_Adoption.state, avg(age) from Animal
+select Animal_Type.type, Animal_Gender.gender, count(*), Animal_Adoption.state, avg(age) from AnimalORG_one
 
-join Animal_Type on Animal.type_id = Animal_Type.id
-join Animal_Gender on Animal.gender_id = Animal_Gender.id
-join Animal_Adoption on Animal.state_id = Animal_Adoption.id
+join Animal_Type on AnimalORG_one.type_id = Animal_Type.id
+join Animal_Gender on AnimalORG_one.gender_id = Animal_Gender.id
+join Animal_Adoption on AnimalORG_one.state_id = Animal_Adoption.id
 
 where state = 'housed'
 
