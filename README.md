@@ -1,114 +1,108 @@
 # SQL-Relational-Databases
 ## SQL-Tables
 
-### create table Animal_Breed_Dog( 
+### create table Animal_Type( 
   id serial, 
-  
-  dog_breed varchar, 
-  
+  type varchar, 
   primary key(id) 
-
 );
 
-insert into Animal_Breed_Dog (dog_breed) values 
-
-('husky'), 
-
-('shiba inu'), 
-
-('shepherd'), 
-
-('pomeranian'), 
-
-('corgi') 
-
+insert into Animal_Type (type) values 
+('dog'),
+('cat')
 ;
 
-### create table Animal_Breed_Cat( 
+### create table Animal_Breed( 
   id serial, 
-  
-  cat_breed varchar, 
-  
+  breed varchar, 
   primary key(id) 
-
 );
 
-insert into Animal_Breed_Cat (cat_breed) values 
-
+insert into Animal_Breed (breed) values 
 ('siamese'), 
-
 ('shorthair'), 
-
 ('persian'), 
+('sphynx'),
+('birman'),
 
-('sphynx') 
+('Chow Chow'),
+('corgi'),
+('Dalmatian'),
+('Dachshund'),
+('shepherd'), 
+ 
+('Abyssinian'),
+('Burmese'),
+('Bombay'),
+('Siberian'),
+('Munchkin'),
 
+('shiba inu'), 
+('Havanese'),
+('Husky'),
+('Maltese'),
+('Pomeranian')
 ;
 
 ### create table Animal_Gender( 
   id serial, 
-  
   gender varchar, 
-  
   primary key(id) 
-
 );
 
  insert into Animal_Gender (gender) values
- 
  ('male'),
- 
  ('female')
- 
  ;
- 
 ### create table Animal_Personality( 
   id serial, 
-  
   personality varchar, 
-  
   primary key(id) 
-
 );
 
 insert into Animal_Personality (personality) values 
-
 ('short tempered'), 
-
 ('polite'), 
-
 ('shy'), 
-
 ('anxious'), 
-
 ('joyous'), 
-
-('lazy') 
-
+('lazy'),
+('happy'),
+('firecracker'),
+('Sassy'),
+('philosophical')
 ;
+
+### create table Animal_Adoption(
+  id serial,
+  state varchar,
+  primary key(id)
+  );
+  
+ insert into Animal_Adoption (state) values
+ ('adopted'),
+ ('housed'),
+ ('in action')
+ ;
 
 ### create table Animal ( 
   name varchar, 
-    
-  dogbreed_id int,
-  
-  catbreed_id int,
-  
+  type_id int,
+  breed_id int,
   gender_id int, 
-  
   personality_id int, 
-  
   age int, 
-    
-  constraint fk_dogbreed_id foreign key(dogbreed_id) references Animal_Breed_dog(id),
+  state_id int,
   
-  constraint fk_catbreed_id foreign key(catbreed_id) references Animal_Breed_cat(id),
   
+  constraint fk_type_id foreign key(type_id) references Animal_Type(id),
+  constraint fk_breed_id foreign key(breed_id) references Animal_Breed(id),
   constraint fk_gender_id foreign key (gender_id) references Animal_Gender(id),       
- 
- constraint fk_personality_id foreign key(personality_id) references Animal_Personality(id) );
+  constraint fk_personality_id foreign key(personality_id) references Animal_Personality(id),
+  constraint fk_state_id foreign key(state_id) references Animal_Adoption(id)
+  );
 
-insert into Animal (name, dogbreed_id, catbreed_id, gender_id, personality_id, age) values 
+insert into Animal (name, type_id, breed_id, gender_id, personality_id, state_id, age) values 
 
 ('Richard', 1, 1, 2, 5, 12) ;
 
