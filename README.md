@@ -184,6 +184,20 @@ create table Animal_Adoption(
  ('housed'),
  ('in action')
  ;
+ 
+ create table Company_BASE (
+  id serial,
+  org_name varchar,
+  org_space int,
+  org_funds int,
+  primary key(id)
+  );
+  
+  insert into Company_BASE (org_name, org_space, org_funds) values
+  ('Quackers', 10000, 2450000),
+  ('Simply Shelters', 14500, 3240000),
+  ('Bones on Bones', 20000, 5125000)
+  ;
 
 create table Animal ( 
   name varchar, 
@@ -291,3 +305,31 @@ join Animal_Adoption on Animal.state_id = Animal_Adoption.id
 where state = 'housed'
 
 group by Animal_type.type, Animal_Gender.gender, Animal_Adoption.state
+
+### Percentage of housed animals
+
+select Animal_Type.type, Animal_Gender.gender, 
+
+((sum(Animal.state_id) - count(*))*100/count(*)) as Housed_Percentage
+
+from Animal
+
+join Animal_Gender on Animal.gender_id = Animal_Gender.id
+join Animal_Type on Animal.type_id = Animal_Type.id
+
+
+group by  Animal_Gender.gender, Animal_Type.type
+
+### Percentage of adopted animals
+
+select Animal_Type.type, Animal_Gender.gender, 
+
+abs(((sum(Animal.state_id) - count(*))*100/count(*))-100) as Adoption_Percentage
+
+from Animal
+
+join Animal_Gender on Animal.gender_id = Animal_Gender.id
+join Animal_Type on Animal.type_id = Animal_Type.id
+
+
+group by  Animal_Gender.gender, Animal_Type.type
