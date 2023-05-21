@@ -1,7 +1,7 @@
 # SQL-Relational-Databases
 ## SQL-Tables
 
-### create table Animal_Type( 
+create table Animal_Type( 
   id serial, 
   type varchar, 
   primary key(id) 
@@ -12,7 +12,7 @@ insert into Animal_Type (type) values
 ('dog')
 ;
 
-### create table Animal_Breed( 
+create table Animal_Breed( 
   id serial, 
   breed varchar, 
   primary key(id) 
@@ -144,7 +144,7 @@ insert into Animal_Breed (breed) values
 ('Zuchon')
 ;
 
-### create table Animal_Gender( 
+create table Animal_Gender( 
   id serial, 
   gender varchar, 
   primary key(id) 
@@ -154,7 +154,7 @@ insert into Animal_Breed (breed) values
  ('male'),
  ('female')
  ;
-### create table Animal_Personality( 
+create table Animal_Personality( 
   id serial, 
   personality varchar, 
   primary key(id) 
@@ -173,7 +173,7 @@ insert into Animal_Personality (personality) values
 ('philosophical')
 ;
 
-### create table Animal_Adoption(
+create table Animal_Adoption(
   id serial,
   state varchar,
   primary key(id)
@@ -185,7 +185,7 @@ insert into Animal_Personality (personality) values
  ('in action')
  ;
 
-### create table Animal ( 
+create table Animal ( 
   name varchar, 
   type_id int,
   breed_id int,
@@ -210,7 +210,50 @@ insert into Animal (name, type_id, breed_id, gender_id, personality_id, state_id
 ('Xael', 2, 63, 2, 6, 1, 55),
 ('Yujiro',2 , 81, 1, 1, 2, 10),
 ('Richard', 2, 99, 2, 5, 3, 12),
-('Mr. Lam', 1, 104, 1, 4, 2, ceiling(RANDOM()*10))
+('Mr. Lam', 1, 104, 1, 4, 2, ceiling(RANDOM()*10)),
+
+('No-Name', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('No-Name', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('No-Name', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('No-Name', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('No-Name', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('No-Name', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('No-Name', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('No-Name', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('No-Name', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('No-Name', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('No-Name', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('No-Name', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('No-Name', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('No-Name', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('No-Name', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('No-Name', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('No-Name', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('No-Name', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('No-Name', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('No-Name', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+
+('Pumpkin', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('Rowan', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('Riley', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('Reese', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('Kai', 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('Milo', 1, ceiling(RANDOM()*60), 1, ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('Nala', 1, ceiling(RANDOM()*60), 2, ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('Felix', 1, ceiling(RANDOM()*60), 1, ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('Lucy', 1, ceiling(RANDOM()*60), 2, ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('Cleo', 1, ceiling(RANDOM()*60), 1, ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+
+('Maske', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('Michael', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('Coco', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('Arbiter', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('Clam', 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('Daisy', 2, 66, 2, ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('Holly', 2, ceiling(RANDOM()*60 + 60), 2, ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('Cooper', 2, ceiling(RANDOM()*60 + 60), 1, ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('Billy', 2, ceiling(RANDOM()*60 + 60), 1, ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15)),
+('Preston', 2, ceiling(RANDOM()*60 + 60), 1, ceiling(RANDOM()*10), ceiling(RANDOM()*3), ceiling(RANDOM()*15))
 ;
 
 ## SQL-Queries 
