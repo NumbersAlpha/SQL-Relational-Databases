@@ -257,10 +257,6 @@ insert into Animal (name, type_id, breed_id, gender_id, personality_id, state_id
 ;
 
 ## SQL-Queries 
-
-### Basic Test
-select id, organization, budget as dollar_budget, housing as square_footage from Animal_Shelter_Name
-
 ### Filtering: Finds all of the animals in house (adoptable). Shows all available pets for adoption.
 select name, Animal_Type.type, Animal_Breed.breed, Animal_Gender.gender, Animal_Personality.personality, Animal_Adoption.state, age from Animal
 
