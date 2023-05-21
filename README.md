@@ -266,13 +266,14 @@ join Animal_Adoption on AnimalORG_one.state_id = Animal_Adoption.id
 where Animal_Adoption.state = 'housed'
 
 ### Sorting: Orders all the adoptable animals from youngest to oldest. If you want a younger pet.
-select name, Animal_Type.type, Animal_Breed.breed, Animal_Gender.gender, Animal_Personality.personality, Animal_Adoption.state, age from Animal
+select name, Company_BASE.org_name, Animal_Type.type, Animal_Breed.breed, Animal_Gender.gender, Animal_Personality.personality, Animal_Adoption.state, age from AnimalORG_one
 
-join Animal_Type on Animal.type_id = Animal_Type.id
-join Animal_Breed on Animal.breed_id = Animal_Breed.id
-join Animal_Gender on Animal.gender_id = Animal_Gender.id
-join Animal_Personality on Animal.personality_id = Animal_Personality.id
-join Animal_Adoption on Animal.state_id = Animal_Adoption.id
+join Company_BASE on AnimalORG_one.org_id = Company_BASE.id
+join Animal_Type on AnimalORG_one.type_id = Animal_Type.id
+join Animal_Breed on AnimalORG_one.breed_id = Animal_Breed.id
+join Animal_Gender on AnimalORG_one.gender_id = Animal_Gender.id
+join Animal_Personality on AnimalORG_one.personality_id = Animal_Personality.id
+join Animal_Adoption on AnimalORG_one.state_id = Animal_Adoption.id
 
 where Animal_Adoption.state = 'housed'
 order by age
