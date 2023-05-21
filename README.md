@@ -252,6 +252,96 @@ insert into AnimalORG_one (name, org_id, type_id, breed_id, gender_id, personali
 ('Preston', 1, 2, ceiling(RANDOM()*60 + 60), 1, ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15))
 ;
 
+create table AnimalORG_two ( 
+  id serial,
+  name varchar,
+  org_id int,
+  type_id int,
+  breed_id int,
+  gender_id int, 
+  personality_id int, 
+  age int, 
+  state_id int,
+  primary key(id),
+  
+  constraint fk_org_id foreign key(org_id) references Company_BASE(id),
+  constraint fk_type_id foreign key(type_id) references Animal_Type(id),
+  constraint fk_breed_id foreign key(breed_id) references Animal_Breed(id),
+  constraint fk_gender_id foreign key (gender_id) references Animal_Gender(id),       
+  constraint fk_personality_id foreign key(personality_id) references Animal_Personality(id),
+  constraint fk_state_id foreign key(state_id) references Animal_Adoption(id)
+  );
+
+
+insert into AnimalORG_two (name, org_id, type_id, breed_id, gender_id, personality_id, state_id, age) values 
+
+('AE', 2, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Albert', 2, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Andy', 2, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Anne', 2, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Aldo', 2, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Appa', 2, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Andrew', 2, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Austin', 2, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Amber', 2, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Altas', 2, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Alex', 2, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Abby', 2, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Aterdam', 2, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('ABall', 2, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('A_Train', 2, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Azier', 2, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Alexander', 2, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Arthur', 2, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Anthony', 2, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Aaron', 2, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15))
+;
+
+create table AnimalORG_three ( 
+  id serial,
+  name varchar,
+  org_id int,
+  type_id int,
+  breed_id int,
+  gender_id int, 
+  personality_id int, 
+  age int, 
+  state_id int,
+  primary key(id),
+  
+  constraint fk_org_id foreign key(org_id) references Company_BASE(id),
+  constraint fk_type_id foreign key(type_id) references Animal_Type(id),
+  constraint fk_breed_id foreign key(breed_id) references Animal_Breed(id),
+  constraint fk_gender_id foreign key (gender_id) references Animal_Gender(id),       
+  constraint fk_personality_id foreign key(personality_id) references Animal_Personality(id),
+  constraint fk_state_id foreign key(state_id) references Animal_Adoption(id)
+  );
+
+
+insert into AnimalORG_three (name, org_id, type_id, breed_id, gender_id, personality_id, state_id, age) values 
+
+('Bingy', 3, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Bing', 3, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Bella', 3, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Bomba', 3, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Bozo', 3, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Bottom', 3, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Blake', 3, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Brittany', 3, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Brick', 3, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Bonnie', 3, 2, ceiling(RANDOM()*60 + 60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Borbszn', 3, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Brampton', 3, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Betty', 3, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Barbara', 3, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('B-Train', 3, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Beatrix', 3, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Brystol', 3, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Benjamin', 3, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Brett', 3, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15)), 
+('Buckey', 3, 1, ceiling(RANDOM()*60), ceiling(RANDOM()*2), ceiling(RANDOM()*10), ceiling(RANDOM()*2), ceiling(RANDOM()*15))
+;
+
 ## SQL-Queries 
 ### Filtering: Finds all of the animals in house (adoptable). Shows all available pets for adoption.
 select name, Company_BASE.org_name, Animal_Type.type, Animal_Breed.breed, Animal_Gender.gender, Animal_Personality.personality, Animal_Adoption.state, age from AnimalORG_one
